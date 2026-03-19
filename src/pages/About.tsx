@@ -17,41 +17,74 @@ const About = () => {
       <div className="relative z-10 max-w-5xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12" style={{ animation: "fade-up 0.8s ease-out" }}>
-          <h1 className="font-gothic text-4xl md:text-5xl text-primary text-glow">About Me</h1>
+          <h1 className="font-gothic text-4xl md:text-5xl text-primary text-glow">Identity Fragments</h1>
           <p className="font-pixel text-xs text-muted-foreground mt-2">[ loading identity... please wait ]</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Left panel - status */}
+          {/* Left panel - status sidebar */}
           <div className="space-y-4" style={{ animation: "fade-up 0.8s ease-out 0.2s both" }}>
+            {/* Profile card */}
             <div className="panel-gothic p-4">
               <h3 className="font-pixel text-sm text-primary mb-3">✧ status</h3>
               <div className="font-pixel text-xs space-y-1 text-muted-foreground">
-                <p>name: <span className="text-foreground">angel</span></p>
-                <p>pronouns: <span className="text-foreground">???</span></p>
-                <p>location: <span className="text-foreground">somewhere between</span></p>
-                <p>mood: <span className="text-accent flicker-text">undefined</span></p>
+                <p>name: <span className="text-foreground">noire</span></p>
+                <p>status: <span className="text-accent flicker-text">online / dreaming / slightly corrupted</span></p>
                 <p>currently: <span className="text-foreground">existing</span></p>
+                <p>alignment: <span className="text-icy-blue">cyber angel with bad sleep</span></p>
+                <p>warning: <span className="text-glow-pink">romanticizes everything</span></p>
+              </div>
+            </div>
+
+            {/* Social links */}
+            <div className="panel-gothic p-4">
+              <h3 className="font-pixel text-sm text-primary mb-3">✧ find me</h3>
+              <div className="font-pixel text-xs space-y-2 text-muted-foreground">
+                <a
+                  href="https://www.instagram.com/esmerayeh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:text-primary transition-colors"
+                >
+                  → instagram: @esmerayeh
+                </a>
+                <a
+                  href="https://open.spotify.com/user/7o15ghrdo31llct7dxf4l26pk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:text-primary transition-colors"
+                >
+                  → spotify
+                </a>
+                <a
+                  href="https://pin.it/4EsV1jgwz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:text-primary transition-colors"
+                >
+                  → pinterest
+                </a>
               </div>
             </div>
 
             <div className="panel-gothic p-4">
-              <h3 className="font-pixel text-sm text-primary mb-3">✧ things i love</h3>
+              <h3 className="font-pixel text-sm text-primary mb-3">✧ loves</h3>
               <div className="font-pixel text-xs space-y-1 text-muted-foreground">
-                <p>→ music that rewrites me</p>
+                <p>→ music, anime, cinema, longing</p>
+                <p>→ dark pretty things</p>
                 <p>→ late nights with no purpose</p>
                 <p>→ broken websites</p>
                 <p>→ fictional people</p>
                 <p>→ the space between songs</p>
                 <p>→ things that feel like too much</p>
-                <p>→ unfinished thoughts</p>
+                <p>→ deep relationships, that bid</p>
               </div>
             </div>
 
             <div className="panel-gothic p-4">
               <h3 className="font-pixel text-sm text-primary mb-3">✧ made of</h3>
               <div className="flex flex-wrap gap-1">
-                {["music", "overthinking", "static", "nostalgia", "caffeine", "unspoken words", "glitch", "longing"].map((tag) => (
+                {["music", "overthinking", "static", "nostalgia", "caffeine", "smoke", "honeyed poison", "glitch", "longing"].map((tag) => (
                   <span key={tag} className="font-pixel text-xs px-2 py-0.5 bg-secondary text-secondary-foreground border border-border">
                     {tag}
                   </span>
@@ -68,6 +101,19 @@ const About = () => {
 
           {/* Main diary */}
           <div className="md:col-span-2 space-y-4" style={{ animation: "fade-up 0.8s ease-out 0.4s both" }}>
+            {/* Short messy about */}
+            <div className="panel-glow p-6 space-y-3">
+              <h2 className="font-pixel text-sm text-primary">✧ who is noire</h2>
+              <div className="font-handwritten text-lg text-foreground/80 leading-relaxed space-y-2">
+                <p>angel, i think.</p>
+                <p>i like music more than i like silence and maybe more than i like most people.</p>
+                <p>i take deep relationships seriously. i like that bid, the opening, the risk of meaning something.</p>
+                <p className="text-accent">firm believer that at any moment there should be someone you miss.</p>
+                <p>all the best things in life are a little honeyed, a little poisonous, a little consuming.</p>
+                <p>i like glitchy things, pretty things, dark things, things that stay with teeth in them.</p>
+              </div>
+            </div>
+
             <div className="diary-entry text-lg leading-relaxed text-foreground/90">
               <p className="mb-4">i don't think i exist in one version.</p>
               <p className="mb-4">i split. i scatter. i echo.</p>
@@ -92,9 +138,20 @@ const About = () => {
                 <span className="text-glow-pink text-accent">i live inside them.</span>
               </p>
               <p className="mb-4 text-muted-foreground">
-                i think that's why i collect sounds like memories—<br />
-                shoegaze haze, dreampop softness,<br />
-                old rock that feels like it remembers something i don't.
+                i like how it feels to smoke—<br />
+                the burn in my lungs, the way time slows down.<br />
+                it's meditative.
+              </p>
+              <p className="mb-4">
+                making deep relationships, being open and eager to live life meaningfully—<br />
+                i love taking that bid.
+              </p>
+              <p className="mb-4 text-accent">
+                honeyed poison.
+              </p>
+              <p className="mb-4 text-muted-foreground">
+                all the best things in life are a little parasitic,<br />
+                a little consuming, a little possessive.
               </p>
               <p className="mb-4">
                 i like things that feel a little broken.<br />
@@ -108,7 +165,7 @@ const About = () => {
                 i want layered.<br />
                 i want something that feels like <span className="glitch-text">too much</span>.
               </p>
-              <p className="mb-4 text-muted-foreground">
+              <p className="mb-4">
                 i romanticize everything—<br />
                 music, people, late nights, fictional characters,<br />
                 even feelings that probably aren't good for me.
@@ -143,7 +200,7 @@ const About = () => {
             <div className="panel-gothic p-6">
               <h3 className="font-pixel text-sm text-primary mb-4">[ additional_log.txt ]</h3>
               <div className="font-pixel text-xs space-y-3 text-muted-foreground">
-                <p>i go by angel.</p>
+                <p>i go by noire.</p>
                 <p>(or maybe i don't. depends on the day.)</p>
                 <p className="mt-2">i build things i don't fully understand yet</p>
                 <p>apps, playlists, versions of myself</p>
@@ -151,6 +208,8 @@ const About = () => {
                 <p className="mt-2">i exist somewhere between</p>
                 <p>late night code</p>
                 <p>and songs that hurt a little too much</p>
+                <p className="mt-2">i'm like</p>
+                <p>cyber + angel + something slightly wrong</p>
                 <p className="mt-2 text-primary/60">
                   i'm not trying to be understood fully<br />
                   just… felt, maybe

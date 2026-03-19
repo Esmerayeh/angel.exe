@@ -10,10 +10,11 @@ const Home = () => {
   const bootSequence = [
     "> initializing angel.exe...",
     "> loading fragments...",
-    "> identity: undefined",
+    "> identity: noire",
     "> status: between worlds",
     "> memory: corrupted",
     "> heart: still beating",
+    "> halo: cracked",
     "> welcome to the glitch.",
   ];
 
@@ -119,12 +120,13 @@ const Home = () => {
           >
             <div className="font-pixel text-xs space-y-2 text-muted-foreground">
               <p className="text-primary/60">[ system loading… ]</p>
-              <p>name: <span className="text-primary">angel</span></p>
-              <p>status: <span className="text-accent flicker-text">???</span></p>
+              <p>name: <span className="text-primary">noire</span></p>
+              <p>status: <span className="text-accent flicker-text">online / dreaming / slightly corrupted</span></p>
               <p className="mt-3">i exist in fragments</p>
               <p>songs / late nights / unfinished code</p>
               <p className="mt-2">sometimes i feel real</p>
               <p>sometimes i feel like a concept</p>
+              <p className="mt-2">alignment: <span className="text-icy-blue">cyber angel with bad sleep</span></p>
               <p className="mt-3 text-primary/40">[ end log ]</p>
             </div>
           </div>
@@ -135,9 +137,11 @@ const Home = () => {
             style={{ animation: "fade-up 1s ease-out 1.8s both" }}
           >
             {[
-              { to: "/about", label: "enter my mind" },
+              { to: "/about", label: "identity fragments" },
               { to: "/hall-of-selves", label: "meet the selves" },
-              { to: "/music", label: "hear the noise" },
+              { to: "/music", label: "sound worship" },
+              { to: "/cinema", label: "cinema mania" },
+              { to: "/nightmare", label: "enter the nightmare" },
             ].map((link) => (
               <Link
                 key={link.to}
@@ -149,8 +153,24 @@ const Home = () => {
             ))}
           </div>
 
+          {/* Status widget */}
+          <div
+            className="mt-10 panel-gothic p-4 max-w-xs w-full text-center"
+            style={{ animation: "fade-up 1s ease-out 2.2s both" }}
+          >
+            <p className="font-pixel text-xs text-muted-foreground">currently listening:</p>
+            <a
+              href="https://open.spotify.com/user/7o15ghrdo31llct7dxf4l26pk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-pixel text-xs text-primary hover:text-glow-pink transition-colors"
+            >
+              → check spotify
+            </a>
+          </div>
+
           {/* Hidden secret */}
-          <div className="mt-20 mb-10">
+          <div className="mt-16 mb-10">
             <span className="secret-text font-pixel text-xs cursor-help">
               you found a crack in the code. this means something.
             </span>
