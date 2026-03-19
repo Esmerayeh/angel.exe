@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 
 const Sparkles = () => {
-  const [sparkles, setSparkles] = useState<Array<{ id: number; x: number; y: number; delay: number; size: number }>>([]);
+  const [sparkles, setSparkles] = useState<Array<{ id: number; x: number; y: number; delay: number; size: number; color: string }>>([]);
 
   useEffect(() => {
-    const newSparkles = Array.from({ length: 15 }, (_, i) => ({
+    const colors = [
+      "hsl(var(--glow-purple))",
+      "hsl(var(--silver))",
+      "hsl(var(--pale-pink))",
+      "hsl(var(--icy-blue))",
+      "hsl(var(--glow-pink))",
+    ];
+    const newSparkles = Array.from({ length: 25 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
       delay: Math.random() * 5,
-      size: Math.random() * 4 + 2,
+      size: Math.random() * 4 + 1,
+      color: colors[i % colors.length],
     }));
     setSparkles(newSparkles);
   }, []);
@@ -25,10 +33,10 @@ const Sparkles = () => {
             top: `${s.y}%`,
             width: s.size,
             height: s.size,
-            background: "hsl(var(--glow-purple))",
+            background: s.color,
             borderRadius: "50%",
-            boxShadow: `0 0 ${s.size * 2}px hsl(var(--glow-purple) / 0.5)`,
-            animation: `sparkle ${2 + Math.random() * 3}s ease-in-out infinite`,
+            boxShadow: `0 0 ${s.size * 3}px ${s.color.replace(")", " / 0.4)")}`,
+            animation: `sparkle ${2 + Math.random() * 4}s ease-in-out infinite`,
             animationDelay: `${s.delay}s`,
           }}
         />

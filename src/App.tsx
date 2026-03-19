@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import GothicNav from "@/components/GothicNav";
 import GrainOverlay from "@/components/GrainOverlay";
 import Sparkles from "@/components/Sparkles";
+import AngelBackground from "@/components/AngelBackground";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import HallOfSelves from "./pages/HallOfSelves";
@@ -27,6 +28,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AngelBackground />
         <GothicNav />
         <GrainOverlay />
         <Sparkles />
