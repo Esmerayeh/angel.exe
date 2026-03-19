@@ -81,6 +81,11 @@ const HallOfSelves = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12" style={{ animation: "fade-up 0.8s ease-out" }}>
+          <div className="flex justify-center mb-3">
+            <div className="w-[80px] h-[25px] rounded-[50%] border border-pale-pink/20 opacity-30"
+              style={{ boxShadow: "0 0 15px hsl(var(--pale-pink) / 0.2)", animation: "float 6s ease-in-out infinite" }}
+            />
+          </div>
           <h1 className="font-gothic text-4xl md:text-5xl text-primary text-glow">
             Hall of Selves
           </h1>
@@ -93,31 +98,48 @@ const HallOfSelves = () => {
         </div>
 
         {/* Character grid */}
-        <div className="space-y-8">
+        <div className="space-y-6">
           {characters.map((char, i) => (
             <div
               key={char.name}
-              className="shrine-card grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0"
+              className="shrine-card grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0 relative group"
               style={{
                 animation: `fade-up 0.8s ease-out ${0.2 + i * 0.15}s both`,
               }}
             >
+              {/* Decorative corner frames */}
+              <div className="absolute top-2 left-2 w-4 h-4 border-t border-l opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+                style={{ borderColor: `hsl(${char.color})` }} />
+              <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+                style={{ borderColor: `hsl(${char.color})` }} />
+
               {/* Image */}
               <div className="h-64 md:h-auto relative overflow-hidden bg-secondary">
                 {char.image ? (
                   <img
                     src={char.image}
                     alt={char.name}
-                    className="w-full h-full object-cover"
-                    style={{ filter: "saturate(0.7) contrast(1.1)" }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    style={{ filter: "saturate(0.6) contrast(1.1)" }}
                   />
                 ) : (
                   <div
-                    className="w-full h-full flex items-center justify-center font-gothic text-3xl text-primary/20"
+                    className="w-full h-full flex items-center justify-center font-gothic text-3xl text-primary/20 relative"
                     style={{
                       background: `radial-gradient(circle at center, hsl(${char.color} / 0.1), hsl(var(--void)))`,
                     }}
                   >
+                    {/* Ghost wing shapes */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-[0.05]">
+                      <div className="w-24 h-32" style={{
+                        background: `radial-gradient(ellipse at right, hsl(${char.color} / 0.6), transparent 60%)`,
+                        transform: "translateX(-20px)",
+                      }} />
+                      <div className="w-24 h-32" style={{
+                        background: `radial-gradient(ellipse at left, hsl(${char.color} / 0.6), transparent 60%)`,
+                        transform: "translateX(20px)",
+                      }} />
+                    </div>
                     ✧
                   </div>
                 )}
@@ -145,7 +167,7 @@ const HallOfSelves = () => {
                   {char.traits.map((trait) => (
                     <span
                       key={trait}
-                      className="font-pixel text-xs px-2 py-0.5 border border-border bg-secondary/50 text-muted-foreground"
+                      className="font-pixel text-xs px-2 py-0.5 border border-border bg-secondary/50 text-muted-foreground hover:text-primary hover:border-primary/20 hover:shadow-[0_0_6px_hsl(var(--glow-purple)/0.15)] transition-all"
                     >
                       {trait}
                     </span>
@@ -157,12 +179,13 @@ const HallOfSelves = () => {
                   <p className="font-pixel text-xs text-muted-foreground">
                     how much of me is her: {char.howMuchOfMe}%
                   </p>
-                  <div className="h-1 bg-secondary rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-secondary rounded-full overflow-hidden relative">
                     <div
-                      className="h-full bg-primary transition-all duration-1000"
+                      className="h-full bg-primary transition-all duration-1000 rounded-full"
                       style={{
                         width: `${char.howMuchOfMe}%`,
-                        boxShadow: `0 0 8px hsl(${char.color} / 0.5)`,
+                        boxShadow: `0 0 10px hsl(${char.color} / 0.5), 0 0 20px hsl(${char.color} / 0.2)`,
+                        background: `linear-gradient(90deg, hsl(var(--primary)), hsl(${char.color}))`,
                       }}
                     />
                   </div>
@@ -174,20 +197,22 @@ const HallOfSelves = () => {
 
         {/* Original selves */}
         <div className="mt-12">
-          <h2 className="font-pixel text-sm text-primary text-center mb-4" style={{ animation: "fade-up 0.8s ease-out 1s both" }}>
+          <h2 className="font-pixel text-sm text-primary text-center mb-6" style={{ animation: "fade-up 0.8s ease-out 1s both" }}>
             ✧ my original selves ✧
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {originalSelves.map((self, i) => (
               <div
                 key={self.name}
-                className="panel-gothic p-4 text-center space-y-2 hover:border-glow transition-all duration-300"
+                className="panel-gothic p-5 text-center space-y-2 hover:border-glow transition-all duration-300 group relative"
                 style={{ animation: `fade-up 0.8s ease-out ${1.1 + i * 0.08}s both` }}
               >
-                <span className="text-2xl block">{self.icon}</span>
+                <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-silver/0 group-hover:border-silver/20 transition-colors duration-500" />
+                <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-silver/0 group-hover:border-silver/20 transition-colors duration-500" />
+                <span className="text-2xl block group-hover:scale-110 transition-transform">{self.icon}</span>
                 <h3 className="font-pixel text-sm text-primary">{self.name}</h3>
-                <p className="font-pixel text-xs text-muted-foreground">{self.desc}</p>
-                <p className="font-pixel text-xs text-primary/40">{self.aesthetic}</p>
+                <p className="font-handwritten text-sm text-foreground/60">{self.desc}</p>
+                <p className="font-pixel text-[10px] text-primary/30">{self.aesthetic}</p>
               </div>
             ))}
           </div>

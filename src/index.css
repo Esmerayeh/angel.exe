@@ -232,21 +232,25 @@
   }
 
   .panel-gothic {
-    @apply border border-border bg-card;
+    @apply border border-border bg-card/80;
+    backdrop-filter: blur(4px);
     box-shadow: 
       0 0 15px hsl(var(--primary) / 0.1),
+      0 0 1px hsl(var(--silver) / 0.1),
       inset 0 0 30px hsl(var(--void) / 0.5);
   }
 
   .panel-glow {
-    @apply border border-border bg-card;
+    @apply border border-border bg-card/80;
+    backdrop-filter: blur(4px);
     box-shadow: 
       0 0 20px hsl(var(--glow-purple) / 0.15),
-      0 0 40px hsl(var(--glow-purple) / 0.05);
+      0 0 40px hsl(var(--glow-purple) / 0.05),
+      0 0 1px hsl(var(--silver) / 0.1);
   }
 
   .text-glow {
-    text-shadow: 0 0 10px hsl(var(--glow-purple) / 0.5), 0 0 20px hsl(var(--glow-purple) / 0.3);
+    text-shadow: 0 0 10px hsl(var(--glow-purple) / 0.5), 0 0 20px hsl(var(--glow-purple) / 0.3), 0 0 40px hsl(var(--glow-purple) / 0.1);
   }
 
   .text-glow-pink {
@@ -258,7 +262,7 @@
   }
 
   .border-glow {
-    box-shadow: 0 0 10px hsl(var(--glow-purple) / 0.3), inset 0 0 10px hsl(var(--glow-purple) / 0.1);
+    box-shadow: 0 0 10px hsl(var(--glow-purple) / 0.3), 0 0 20px hsl(var(--glow-purple) / 0.1), inset 0 0 10px hsl(var(--glow-purple) / 0.05);
   }
 
   .vhs-effect {
@@ -278,28 +282,33 @@
   }
 
   .diary-entry {
-    @apply border border-border bg-card p-4;
+    @apply border border-border bg-card/80 p-5;
+    backdrop-filter: blur(4px);
     font-family: var(--font-handwritten);
     background-image: 
       repeating-linear-gradient(
         transparent,
         transparent 27px,
-        hsl(var(--border) / 0.3) 28px
+        hsl(var(--border) / 0.2) 28px
       );
     background-size: 100% 28px;
     line-height: 28px;
+    box-shadow: 0 0 1px hsl(var(--silver) / 0.1);
   }
 
   .shrine-card {
-    @apply border border-border bg-card overflow-hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 0 hsl(var(--glow-purple) / 0);
+    @apply border border-border bg-card/80 overflow-hidden;
+    backdrop-filter: blur(4px);
+    transition: all 0.4s ease;
+    box-shadow: 0 0 0 hsl(var(--glow-purple) / 0), 0 0 1px hsl(var(--silver) / 0.08);
   }
   .shrine-card:hover {
     box-shadow: 
-      0 0 20px hsl(var(--glow-purple) / 0.3),
-      0 0 40px hsl(var(--glow-purple) / 0.1);
-    transform: translateY(-2px) rotate(0.5deg);
+      0 0 20px hsl(var(--glow-purple) / 0.2),
+      0 0 40px hsl(var(--glow-purple) / 0.08),
+      0 0 1px hsl(var(--silver) / 0.15);
+    transform: translateY(-3px);
+    border-color: hsl(var(--primary) / 0.2);
   }
 
   .nav-link-gothic {

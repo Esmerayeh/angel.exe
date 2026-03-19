@@ -55,11 +55,28 @@ const thoughts = [
   },
 ];
 
+const tagColors: Record<string, string> = {
+  obsession: "var(--glow-pink)",
+  ache: "var(--pale-pink)",
+  longing: "var(--icy-blue)",
+  void: "var(--glow-purple)",
+  melancholy: "var(--silver)",
+  smoke: "var(--silver)",
+  midnight: "var(--glow-blue)",
+  dream: "var(--glow-purple)",
+  angel: "var(--pale-pink)",
+};
+
 const ThoughtFiles = () => {
   return (
     <div className="min-h-screen pt-20 pb-16 relative">
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <div className="text-center mb-12" style={{ animation: "fade-up 0.8s ease-out" }}>
+          <div className="flex justify-center mb-3">
+            <div className="w-[70px] h-[22px] rounded-[50%] border border-silver/15 opacity-25"
+              style={{ boxShadow: "0 0 10px hsl(var(--silver) / 0.15)", animation: "float 8s ease-in-out infinite" }}
+            />
+          </div>
           <h1 className="font-gothic text-4xl md:text-5xl text-primary text-glow">
             Thought Files
           </h1>
@@ -71,31 +88,45 @@ const ThoughtFiles = () => {
           </p>
         </div>
 
-        <div className="space-y-6">
-          {thoughts.map((t, i) => (
-            <div
-              key={i}
-              className="panel-gothic p-6 space-y-3"
-              style={{ animation: `fade-up 0.8s ease-out ${0.2 + i * 0.1}s both` }}
-            >
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <h2 className="font-pixel text-sm text-primary">{t.title}</h2>
-                <div className="flex gap-2 items-center">
-                  {t.tag && (
-                    <span className="font-pixel text-xs px-2 py-0.5 border border-border bg-secondary text-accent">
-                      {t.tag}
-                    </span>
-                  )}
-                  {t.date && (
-                    <span className="font-pixel text-xs text-muted-foreground">{t.date}</span>
-                  )}
+        <div className="space-y-5">
+          {thoughts.map((t, i) => {
+            const color = tagColors[t.tag] || "var(--glow-purple)";
+            return (
+              <div
+                key={i}
+                className="panel-gothic p-6 space-y-3 relative group overflow-hidden"
+                style={{ animation: `fade-up 0.8s ease-out ${0.2 + i * 0.08}s both` }}
+              >
+                {/* Accent glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(ellipse at 0% 50%, hsl(${color} / 0.05), transparent 50%)` }}
+                />
+                {/* Corner decorations */}
+                <div className="absolute top-2 left-2 w-3 h-3 border-t border-l opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  style={{ borderColor: `hsl(${color})` }} />
+                <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  style={{ borderColor: `hsl(${color})` }} />
+
+                <div className="flex items-center justify-between flex-wrap gap-2 relative z-10">
+                  <h2 className="font-pixel text-sm text-primary">{t.title}</h2>
+                  <div className="flex gap-2 items-center">
+                    {t.tag && (
+                      <span className="font-pixel text-xs px-2 py-0.5 border border-border bg-secondary text-accent"
+                        style={{ borderColor: `hsl(${color} / 0.3)` }}>
+                        {t.tag}
+                      </span>
+                    )}
+                    {t.date && (
+                      <span className="font-pixel text-xs text-muted-foreground">{t.date}</span>
+                    )}
+                  </div>
                 </div>
+                <p className="font-handwritten text-lg text-foreground/80 leading-relaxed relative z-10">
+                  {t.content}
+                </p>
               </div>
-              <p className="font-handwritten text-lg text-foreground/80 leading-relaxed">
-                {t.content}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-8 text-center">

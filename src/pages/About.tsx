@@ -5,18 +5,23 @@ const About = () => {
     <div className="min-h-screen pt-20 pb-16 relative">
       {/* Background subtle image */}
       <div
-        className="fixed inset-0 z-0 opacity-5"
+        className="fixed inset-0 z-0 opacity-[0.04]"
         style={{
           backgroundImage: `url(${angelCats})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(2px)",
+          filter: "blur(3px) saturate(0.4)",
         }}
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12" style={{ animation: "fade-up 0.8s ease-out" }}>
+          <div className="flex justify-center mb-3">
+            <div className="w-[100px] h-[30px] rounded-[50%] border border-silver/15 opacity-30"
+              style={{ boxShadow: "0 0 15px hsl(var(--silver) / 0.15)", animation: "float 7s ease-in-out infinite" }}
+            />
+          </div>
           <h1 className="font-gothic text-4xl md:text-5xl text-primary text-glow">Identity Fragments</h1>
           <p className="font-pixel text-xs text-muted-foreground mt-2">[ loading identity... please wait ]</p>
         </div>
@@ -25,7 +30,8 @@ const About = () => {
           {/* Left panel - status sidebar */}
           <div className="space-y-4" style={{ animation: "fade-up 0.8s ease-out 0.2s both" }}>
             {/* Profile card */}
-            <div className="panel-gothic p-4">
+            <div className="panel-gothic p-4 relative">
+              <div className="absolute top-2 right-2 w-3 h-3 border-t border-r border-pale-pink/15" />
               <h3 className="font-pixel text-sm text-primary mb-3">✧ status</h3>
               <div className="font-pixel text-xs space-y-1 text-muted-foreground">
                 <p>name: <span className="text-foreground">noire</span></p>
@@ -37,37 +43,21 @@ const About = () => {
             </div>
 
             {/* Social links */}
-            <div className="panel-gothic p-4">
+            <div className="panel-gothic p-4 relative">
+              <div className="absolute top-2 right-2 w-3 h-3 border-t border-r border-silver/10" />
               <h3 className="font-pixel text-sm text-primary mb-3">✧ find me</h3>
               <div className="font-pixel text-xs space-y-2 text-muted-foreground">
-                <a
-                  href="https://www.instagram.com/esmerayeh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:text-primary transition-colors"
-                >
-                  → instagram: @esmerayeh
-                </a>
-                <a
-                  href="https://open.spotify.com/user/7o15ghrdo31llct7dxf4l26pk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:text-primary transition-colors"
-                >
-                  → spotify
-                </a>
-                <a
-                  href="https://pin.it/4EsV1jgwz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:text-primary transition-colors"
-                >
-                  → pinterest
-                </a>
+                <a href="https://www.instagram.com/esmerayeh" target="_blank" rel="noopener noreferrer"
+                  className="block hover:text-primary hover:text-glow transition-all">→ instagram: @esmerayeh</a>
+                <a href="https://open.spotify.com/user/7o15ghrdo31llct7dxf4l26pk" target="_blank" rel="noopener noreferrer"
+                  className="block hover:text-primary hover:text-glow transition-all">→ spotify</a>
+                <a href="https://pin.it/4EsV1jgwz" target="_blank" rel="noopener noreferrer"
+                  className="block hover:text-primary hover:text-glow transition-all">→ pinterest</a>
               </div>
             </div>
 
-            <div className="panel-gothic p-4">
+            <div className="panel-gothic p-4 relative">
+              <div className="absolute bottom-2 left-2 w-3 h-3 border-b border-l border-glow-purple/10" />
               <h3 className="font-pixel text-sm text-primary mb-3">✧ loves</h3>
               <div className="font-pixel text-xs space-y-1 text-muted-foreground">
                 <p>→ music, anime, cinema, longing</p>
@@ -85,7 +75,7 @@ const About = () => {
               <h3 className="font-pixel text-sm text-primary mb-3">✧ made of</h3>
               <div className="flex flex-wrap gap-1">
                 {["music", "overthinking", "static", "nostalgia", "caffeine", "smoke", "honeyed poison", "glitch", "longing"].map((tag) => (
-                  <span key={tag} className="font-pixel text-xs px-2 py-0.5 bg-secondary text-secondary-foreground border border-border">
+                  <span key={tag} className="font-pixel text-xs px-2 py-0.5 bg-secondary text-secondary-foreground border border-border hover:border-primary/30 hover:shadow-[0_0_6px_hsl(var(--glow-purple)/0.15)] transition-all">
                     {tag}
                   </span>
                 ))}
@@ -102,7 +92,9 @@ const About = () => {
           {/* Main diary */}
           <div className="md:col-span-2 space-y-4" style={{ animation: "fade-up 0.8s ease-out 0.4s both" }}>
             {/* Short messy about */}
-            <div className="panel-glow p-6 space-y-3">
+            <div className="panel-glow p-6 space-y-3 relative">
+              <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-pale-pink/15" />
+              <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-pale-pink/15" />
               <h2 className="font-pixel text-sm text-primary">✧ who is noire</h2>
               <div className="font-handwritten text-lg text-foreground/80 leading-relaxed space-y-2">
                 <p>angel, i think.</p>
@@ -114,7 +106,8 @@ const About = () => {
               </div>
             </div>
 
-            <div className="diary-entry text-lg leading-relaxed text-foreground/90">
+            <div className="diary-entry text-lg leading-relaxed text-foreground/90 relative">
+              <div className="absolute -top-2 -left-2 w-5 h-5 border-t border-l border-silver/10" />
               <p className="mb-4">i don't think i exist in one version.</p>
               <p className="mb-4">i split. i scatter. i echo.</p>
               <p className="mb-4">
@@ -146,9 +139,7 @@ const About = () => {
                 making deep relationships, being open and eager to live life meaningfully—<br />
                 i love taking that bid.
               </p>
-              <p className="mb-4 text-accent">
-                honeyed poison.
-              </p>
+              <p className="mb-4 text-accent">honeyed poison.</p>
               <p className="mb-4 text-muted-foreground">
                 all the best things in life are a little parasitic,<br />
                 a little consuming, a little possessive.
@@ -197,7 +188,8 @@ const About = () => {
             </div>
 
             {/* Extra about section */}
-            <div className="panel-gothic p-6">
+            <div className="panel-gothic p-6 relative">
+              <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-silver/10" />
               <h3 className="font-pixel text-sm text-primary mb-4">[ additional_log.txt ]</h3>
               <div className="font-pixel text-xs space-y-3 text-muted-foreground">
                 <p>i go by noire.</p>
