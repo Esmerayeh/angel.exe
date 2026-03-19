@@ -106,7 +106,7 @@ Angel.exe exists as:
 
 ## ✧ Author
 
-**Noire**  
+ es
 > cyber angel / music obsessive / builder of strange things  
 
 - Instagram: @esmerayeh  
