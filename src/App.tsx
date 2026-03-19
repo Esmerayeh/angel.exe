@@ -3,8 +3,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import GothicNav from "@/components/GothicNav";
+import GrainOverlay from "@/components/GrainOverlay";
+import Sparkles from "@/components/Sparkles";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import HallOfSelves from "./pages/HallOfSelves";
+import MusicSanctuary from "./pages/MusicSanctuary";
+import ThoughtFiles from "./pages/ThoughtFiles";
+import DiaryPlaceholder from "./pages/DiaryPlaceholder";
+import MediaArchive from "./pages/MediaArchive";
+import CharacterRoom from "./pages/CharacterRoom";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -14,9 +24,18 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <GothicNav />
+        <GrainOverlay />
+        <Sparkles />
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/hall-of-selves" element={<HallOfSelves />} />
+          <Route path="/music" element={<MusicSanctuary />} />
+          <Route path="/diary" element={<DiaryPlaceholder />} />
+          <Route path="/archive" element={<MediaArchive />} />
+          <Route path="/thoughts" element={<ThoughtFiles />} />
+          <Route path="/characters" element={<CharacterRoom />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
