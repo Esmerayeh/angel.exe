@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { path: "/", label: "home" },
-  { path: "/about", label: "about me" },
+  { path: "/", label: "halo breach" },
+  { path: "/about", label: "identity fragments" },
   { path: "/hall-of-selves", label: "hall of selves" },
-  { path: "/music", label: "music sanctuary" },
-  { path: "/diary", label: "digital diary" },
-  { path: "/archive", label: "media archive" },
+  { path: "/music", label: "sound worship" },
+  { path: "/cinema", label: "cinema mania" },
+  { path: "/archive", label: "entity archive" },
+  { path: "/anime-shrine", label: "animated vault" },
+  { path: "/diary", label: "log files" },
   { path: "/thoughts", label: "thought files" },
-  { path: "/characters", label: "character room" },
+  { path: "/instruments", label: "sound altar" },
+  { path: "/nightmare", label: "nightmare interface" },
 ];
 
 const floatingTexts = [
@@ -18,6 +22,9 @@ const floatingTexts = [
   "don't refresh",
   "you've been here before",
   "is this real?",
+  "something didn't load properly",
+  "she's still typing...",
+  "don't scroll too fast",
   "fragments of someone",
   "loading identity...",
   "404: self not found",
@@ -28,6 +35,7 @@ const GothicNav = () => {
   const [ghostText, setGhostText] = useState("");
   const [ghostPos, setGhostPos] = useState({ x: 0, y: 0 });
   const [showGhost, setShowGhost] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,6 +52,10 @@ const GothicNav = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-void/90 backdrop-blur-sm">
@@ -51,7 +63,9 @@ const GothicNav = () => {
           <Link to="/" className="font-gothic text-xl text-primary text-glow">
             Angel.exe
           </Link>
-          <div className="flex flex-wrap gap-1 items-center">
+
+          {/* Desktop nav */}
+          <div className="hidden lg:flex flex-wrap gap-1 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -62,11 +76,35 @@ const GothicNav = () => {
               </Link>
             ))}
           </div>
-          <span className="font-pixel text-xs text-muted-foreground flicker-text">
-            [ system online ]
-          </span>
+
+          <div className="flex items-center gap-3">
+            <span className="hidden md:inline font-pixel text-xs text-muted-foreground flicker-text">
+              [ system online ]
+            </span>
+            <button
+              className="lg:hidden text-muted-foreground hover:text-primary transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
         <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <div className="lg:hidden bg-void/95 backdrop-blur-md border-b border-border px-4 py-3 space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`block nav-link-gothic py-2 ${location.pathname === item.path ? "active" : ""}`}
+              >
+                ✧ {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* Ghost text */}

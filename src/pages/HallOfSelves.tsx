@@ -19,9 +19,9 @@ const characters: CharacterData[] = [
     subtitle: "chaotic devotion",
     image: "",
     aesthetic: "gothic lolita × death note × obsessive love",
-    description: "pretty darkness, love that consumes. she'd burn the world for someone who wouldn't burn a match for her. and she'd do it smiling.",
+    description: "pretty darkness, love that consumes. she'd burn the world for someone who wouldn't burn a match for her. and she'd do it smiling. honeyed poison in human form.",
     howMuchOfMe: 75,
-    traits: ["devotion", "chaos", "beauty as weapon", "love sickness"],
+    traits: ["devotion", "chaos", "beauty as weapon", "love sickness", "honeyed poison"],
     color: "var(--glow-pink)",
   },
   {
@@ -55,15 +55,24 @@ const characters: CharacterData[] = [
     color: "var(--silver)",
   },
   {
-    name: "The Groupie",
-    subtitle: "romantic chaos",
+    name: "The Band-Aid",
+    subtitle: "romantic chaos × muse energy",
     image: wispPoster,
     aesthetic: "almost famous × fleeting love × music as religion",
-    description: "the one who falls in love with sounds before people. who sees concerts like church. who gives herself to the music and calls it holy.",
+    description: "the one who falls in love with sounds before people. who sees concerts like church. who gives herself to the music and calls it holy. the muse who doesn't know she's the art.",
     howMuchOfMe: 80,
-    traits: ["romantic chaos", "music worship", "fleeting connections", "golden era"],
+    traits: ["romantic chaos", "music worship", "fleeting connections", "golden era", "muse energy"],
     color: "var(--pale-pink)",
   },
+];
+
+const originalSelves = [
+  { name: "cyber angel", desc: "the version made of code and halos, glowing in the dark web", icon: "⌘", aesthetic: "neon wings, digital prayers, static halos" },
+  { name: "soft pink self", desc: "pastel tears, quiet longing, loves too gently for this world", icon: "♡", aesthetic: "rose quartz, whispered confessions, silk" },
+  { name: "destructive self", desc: "the one who burns it all down and watches from the ashes", icon: "✕", aesthetic: "fire, black nail polish, no regrets" },
+  { name: "dreamy music self", desc: "exists only inside headphones, between songs, in reverb", icon: "♪", aesthetic: "vinyl crackle, concert smoke, 3am playlists" },
+  { name: "weird internet ghost", desc: "haunts old forums, collects dead links, speaks in code", icon: "◊", aesthetic: "404 pages, geocities, cursor trails" },
+  { name: "gothic angel", desc: "the version that prays in dead languages", icon: "✝", aesthetic: "stained glass, latin, dark cathedrals" },
 ];
 
 const HallOfSelves = () => {
@@ -163,24 +172,31 @@ const HallOfSelves = () => {
           ))}
         </div>
 
-        {/* Extra selves */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { name: "gothic angel", desc: "the version that prays in dead languages", icon: "✝" },
-            { name: "cyber self", desc: "the one made of code and static", icon: "⌘" },
-            { name: "soft version", desc: "pastel tears and quiet love", icon: "♡" },
-            { name: "destructive", desc: "the one who burns it all down", icon: "✕" },
-          ].map((self, i) => (
-            <div
-              key={self.name}
-              className="panel-gothic p-4 text-center space-y-2 hover:border-glow transition-all duration-300"
-              style={{ animation: `fade-up 0.8s ease-out ${1 + i * 0.1}s both` }}
-            >
-              <span className="text-2xl block">{self.icon}</span>
-              <h3 className="font-pixel text-sm text-primary">{self.name}</h3>
-              <p className="font-pixel text-xs text-muted-foreground">{self.desc}</p>
-            </div>
-          ))}
+        {/* Original selves */}
+        <div className="mt-12">
+          <h2 className="font-pixel text-sm text-primary text-center mb-4" style={{ animation: "fade-up 0.8s ease-out 1s both" }}>
+            ✧ my original selves ✧
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {originalSelves.map((self, i) => (
+              <div
+                key={self.name}
+                className="panel-gothic p-4 text-center space-y-2 hover:border-glow transition-all duration-300"
+                style={{ animation: `fade-up 0.8s ease-out ${1.1 + i * 0.08}s both` }}
+              >
+                <span className="text-2xl block">{self.icon}</span>
+                <h3 className="font-pixel text-sm text-primary">{self.name}</h3>
+                <p className="font-pixel text-xs text-muted-foreground">{self.desc}</p>
+                <p className="font-pixel text-xs text-primary/40">{self.aesthetic}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 text-center">
+          <span className="secret-text font-pixel text-xs">
+            or don't. they might find you first.
+          </span>
         </div>
       </div>
     </div>

@@ -10,10 +10,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import HallOfSelves from "./pages/HallOfSelves";
 import MusicSanctuary from "./pages/MusicSanctuary";
-import ThoughtFiles from "./pages/ThoughtFiles";
+import CinemaMania from "./pages/CinemaMania";
 import DiaryPlaceholder from "./pages/DiaryPlaceholder";
 import MediaArchive from "./pages/MediaArchive";
-import CharacterRoom from "./pages/CharacterRoom";
+import AnimeShrine from "./pages/AnimeShrine";
+import Instruments from "./pages/Instruments";
+import ThoughtFiles from "./pages/ThoughtFiles";
+import NightmareInterface from "./pages/NightmareInterface";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,10 +35,13 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/hall-of-selves" element={<HallOfSelves />} />
           <Route path="/music" element={<MusicSanctuary />} />
+          <Route path="/cinema" element={<CinemaMania />} />
           <Route path="/diary" element={<DiaryPlaceholder />} />
           <Route path="/archive" element={<MediaArchive />} />
+          <Route path="/anime-shrine" element={<AnimeShrine />} />
+          <Route path="/instruments" element={<Instruments />} />
           <Route path="/thoughts" element={<ThoughtFiles />} />
-          <Route path="/characters" element={<CharacterRoom />} />
+          <Route path="/nightmare" element={<NightmareInterface />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
